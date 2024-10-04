@@ -1,4 +1,4 @@
-
+# Learning to discretize diffusion ODEs
 
 ## Setup
 ```bash
