@@ -1,4 +1,4 @@
-# Learning to discretize diffusion ODEs
+# Learning to Discretize Denoising Diffusion ODEs
 
 ## Setup
 ```bash
