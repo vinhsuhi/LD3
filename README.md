@@ -8,6 +8,11 @@ Implementation of LD3, a lightweight framework designed to learn the optimal tim
 
 ![Alt Text](visualizations/illustration-lddd.png)
 
+## 🔥 Latest News
+
+- **March 2025**: We have successfully applied **LD3** to the **Flux-dev** model and observed promising results.  
+- We are releasing the trained time steps for the Flux model soon! Stay tuned for updates.  
+
 
 ## Setup Environment
 
