@@ -25,6 +25,7 @@ do
                 --solver_name ${solver} \
                 --steps ${steps} \
                 --total_samples 50000 \
+                --use_ema \
                 --log_path all_logs/logs_${dataset} \
                 --data_dir sampling_data/sampling_data_${dataset} \
                 --save_png
