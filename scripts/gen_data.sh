@@ -16,7 +16,7 @@ CUDA_VISIBLE_DEVICES=0 python3 gen_data.py \
 --sampling_batch_size 20 \
 --steps 20 \
 --solver_name uni_pc \
---skip_type time_uniform \
+--skip_type time_quadratic \
 --save_pt --save_png --data_dir train_data_test/train_data_LSUN
 
 CUDA_VISIBLE_DEVICES=3 python3 gen_data.py \
