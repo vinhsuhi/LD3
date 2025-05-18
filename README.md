@@ -111,7 +111,7 @@ CUDA_VISIBLE_DEVICES=0 python3 main.py \
 
 ### ⚠️ Different FID Scores
 
-It is important to note that FID (Fréchet Inception Distance) scores can vary significantly depending on the processing pipeline used. To ensure transparency and reproducibility, our framework provides a script `compute_fid.py` that supports FID evaluation for both EDM (Explicit Diffusion Models) and Latent-Diffusion methods.
+It is important to note that FID (Fréchet Inception Distance) scores can vary significantly depending on the processing pipeline used. To ensure transparency and reproducibility, our framework provides a script `compute_fid.py` that supports FID evaluation for both EDM and Latent-Diffusion.
 
 ### 📌 How FID Evaluation Works
 
