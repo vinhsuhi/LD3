@@ -106,6 +106,35 @@ CUDA_VISIBLE_DEVICES=0 python3 main.py \
 - `data_dir`: The full path to the training data directory (unlike the root directory used during data generation).
 - `log_path`: The root directory for saving logs and models. The script will create a subdirectory within this path using the naming format: `${solver_name}-N${steps}-b${bound}-${loss_type}-lr2${lr2}rv1${rv1}-rv2${rv2}`, for example, `uni_pc-N10-b0.03072-LPIPS-lr20.01rv12-rv25`
 
+## FID Evaluation
+
+
+### ⚠️ Different FID Scores
+
+It is important to note that FID (Fréchet Inception Distance) scores can vary significantly depending on the processing pipeline used. To ensure transparency and reproducibility, our framework provides a script `compute_fid.py` that supports FID evaluation for both EDM (Explicit Diffusion Models) and Latent-Diffusion methods.
+
+### 📌 How FID Evaluation Works
+
+The `compute_fid.py` script is a streamlined version of `gen_data.py` with a few differences:
+
+The `--save_dir`, `--save_pt`, and `--save_png` arguments are ignored because the generated data is directly processed for FID calculation without being saved.
+
+The data is automatically forwarded to the FID computation module to extract features.
+
+### 📌 Example: Computing FID for Stable Diffusion
+
+```bash 
+CUDA_VISIBLE_DEVICES=0 python3 compute_fid.py \
+                    --all_config configs/stable_diff_v1-4.yml \
+                    --total_samples 100 \
+                    --sampling_batch_size 2 \
+                    --steps 6 \
+                    --solver_name uni_pc \
+                    --skip_type time_uniform \
+                    --low_gpu \
+                    --num_prompts 5 --prompt_path captions_val2014.json
+
+```
 ## Citation 
 
 ```
