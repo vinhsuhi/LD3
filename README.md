@@ -2,7 +2,7 @@
 
 🏆 ![ICLR2025 Oral](https://img.shields.io/badge/ICLR2025-Oral-blue)
 
-### [Paper on arXiv](https://arxiv.org/abs/2405.15506)
+### [Paper on OpenReview](https://openreview.net/forum?id=xDrFWUmCne)
 
 Implementation of LD3, a lightweight framework designed to learn the optimal time discretization for sampling from pre-trained Diffusion Probabilistic Models (DPMs). LD3 can be combined with various samplers and consistently improves generation quality without having to retrain resource-intensive neural networks. LD3 offers an efficient approach to sampling from pre-trained diffusion models.
 
@@ -138,11 +138,11 @@ CUDA_VISIBLE_DEVICES=0 python3 compute_fid.py \
 ## Citation 
 
 ```
-@article{tong2024learning,
-  title={Learning to Discretize Denoising Diffusion ODEs},
-  author={Tong, Vinh and Hoang, Trung-Dung and Liu, Anji and Broeck, Guy Van den and Niepert, Mathias},
-  journal={arXiv preprint arXiv:2405.15506},
-  year={2024}
+@inproceedings{tong2024learning,
+  title     = {Learning to Discretize Denoising Diffusion ODEs},
+  author    = {Tong, Vinh and Hoang, Trung-Dung and Liu, Anji and Van den Broeck, Guy and Niepert, Mathias},
+  booktitle = {Proceedings of the 13th International Conference on Learning Representations},
+  year      = {2025}
 }
 ```
 
