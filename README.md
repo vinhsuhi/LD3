@@ -125,6 +125,7 @@ The `--save_dir`, `--save_pt`, and `--save_png` arguments are ignored because th
 
 The data is automatically forwarded to the FID computation module to extract features.
 
+Optionally, you can pass your own timesteps via `--custom_ts_1` and `--custom_ts_2`. If `custom_ts_2` is not specified, it will be set the same as `custom_ts_1`
 ### 📌 Example: Computing FID for Stable Diffusion
 
 ```bash 
@@ -135,6 +136,17 @@ CUDA_VISIBLE_DEVICES=0 python3 compute_fid.py \
                     --steps 6 \
                     --solver_name uni_pc \
                     --skip_type time_uniform \
+                    --low_gpu \
+                    --num_prompts 5 --prompt_path captions_val2014.json
+
+CUDA_VISIBLE_DEVICES=0 python3 compute_fid.py \
+                    --all_config configs/stable_diff_v1-4.yml \
+                    --total_samples 100 \
+                    --sampling_batch_size 2 \
+                    --steps 6 \
+                    --solver_name uni_pc \
+                    --skip_type custom \
+                    --custom_ts_1 [1.0,0.7,0.5] \
                     --low_gpu \
                     --num_prompts 5 --prompt_path captions_val2014.json
 

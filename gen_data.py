@@ -29,7 +29,8 @@ class Generator:
         order,
         skip_type=None,
         load_from=None,
-        gits_timesteps=None,
+        timesteps_1=None,
+        timesteps_2=None,
         steps=35,
         solver_extra_params=None,
         device=None,
@@ -40,16 +41,18 @@ class Generator:
         self.order = order
         self.skip_type = skip_type
         self.load_from = load_from
-        self.gits_timesteps = gits_timesteps
+        self.timesteps_1 = timesteps_1
+        self.timesteps_2 = timesteps_2
         self.steps = steps
         self.solver_extra_params = solver_extra_params
 
         self._precompute_timesteps()
 
     def _precompute_timesteps(self):
-        if self.load_from is None and type(self.gits_timesteps) == list and type(self.gits_timesteps[0]) == float:
-            self.timesteps = self.noise_schedule.inverse_lambda(-np.log(self.gits_timesteps)).to(self.device).float()
-            self.timesteps2 = self.timesteps
+        if self.load_from is None and type(self.timesteps_1) == list and type(self.timesteps_1[0]) == float \
+            and type(self.timesteps_2) == list and type(self.timesteps_2[0]) == float:
+            self.timesteps = self.noise_schedule.inverse_lambda(-np.log(self.timesteps_1)).to(self.device).float()
+            self.timesteps2 = self.noise_schedule.inverse_lambda(-np.log(self.timesteps_2)).to(self.device).float()
         else:
             self.timesteps, self.timesteps2 = self.solver.prepare_timesteps(
                 steps=self.steps,
@@ -114,7 +117,8 @@ def main(args):
         order=args.order,
         skip_type=skip_type,
         load_from=args.load_from,
-        gits_timesteps=args.gits_ts,
+        timesteps_1=args.custom_ts_1,
+        timesteps_2=args.custom_ts_2,
         steps=steps,
         solver_extra_params=solver_extra_params,
         device=device,
