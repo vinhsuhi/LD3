@@ -68,12 +68,20 @@ PRIOR_TIMESTEPS = {
 }
 
 def parse_prior_timesteps(args):
-    if args.gits_ts is not None:
+    if args.custom_ts_1 is not None:
         try:
-            args.gits_ts = ast.literal_eval(args.gits_ts)
-            return
-        except:
+            args.custom_ts_1 = ast.literal_eval(args.custom_ts_1)
+        except Exception:
             pass
+        else:
+            if args.custom_ts_2 is not None:
+                try:
+                    args.custom_ts_2 = ast.literal_eval(args.custom_ts_2)
+                except Exception:
+                    pass
+            if args.custom_ts_2 is None:
+                args.custom_ts_2 = args.custom_ts_1
+            return
         
     if args.use_gits:
         dataset = None
@@ -88,7 +96,8 @@ def parse_prior_timesteps(args):
             dataset = 'sd'
         
         if args.steps in PRIOR_TIMESTEPS[dataset]:
-            args.gits_ts = PRIOR_TIMESTEPS[dataset][args.steps]
+            args.custom_ts_1 = PRIOR_TIMESTEPS[dataset][args.steps]
+            args.custom_ts_2 = args.custom_ts_1
         else:
             raise NotImplementedError
 
@@ -149,7 +158,8 @@ def parse_arguments():
 
     testing_group = parser.add_argument_group('Testing Parameters')
     testing_group.add_argument("--load_from_version", type=int, default=2, help="Load from whihc version, default=2")
-    testing_group.add_argument("--gits_ts", type=str, help="Gits timesteps")
+    testing_group.add_argument("--custom_ts_1", type=str, help="Custom timesteps 1")
+    testing_group.add_argument("--custom_ts_2", type=str, help="Custom timesteps 2")
     testing_group.add_argument("--use_gits", action="store_true", help="Use pre-computed gits timesteps")
     testing_group.add_argument("--learn", action="store_true", help="Load from learned timesteps.")
     testing_group.add_argument("--load_from", type=str, help="Ckpt path")
