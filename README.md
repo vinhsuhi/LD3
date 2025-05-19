@@ -2,7 +2,7 @@
 
 🏆 ![ICLR2025 Oral](https://img.shields.io/badge/ICLR2025-Oral-blue)
 
-### [Paper on arXiv](https://arxiv.org/abs/2405.15506)
+### [Paper on OpenReview](https://openreview.net/forum?id=xDrFWUmCne)
 
 Implementation of LD3, a lightweight framework designed to learn the optimal time discretization for sampling from pre-trained Diffusion Probabilistic Models (DPMs). LD3 can be combined with various samplers and consistently improves generation quality without having to retrain resource-intensive neural networks. LD3 offers an efficient approach to sampling from pre-trained diffusion models.
 
@@ -101,6 +101,10 @@ CUDA_VISIBLE_DEVICES=0 python3 main.py \
                     --log_path logs/logs_cifar10
 ```
 
+**Trained timesteps are available [here](https://docs.google.com/spreadsheets/d/1nUrTDvvtpPHZuRuJcn3zzxGmVKrNX4fFHu8wYIIoGSM/edit?usp=sharing) and are still being updated.**
+
+
+
 #### 📌 Key Arguments:
 
 - `data_dir`: The full path to the training data directory (unlike the root directory used during data generation).
@@ -111,7 +115,7 @@ CUDA_VISIBLE_DEVICES=0 python3 main.py \
 
 ### ⚠️ Different FID Scores
 
-It is important to note that FID (Fréchet Inception Distance) scores can vary significantly depending on the processing pipeline used. To ensure transparency and reproducibility, our framework provides a script `compute_fid.py` that supports FID evaluation for both EDM (Explicit Diffusion Models) and Latent-Diffusion methods.
+It is important to note that FID (Fréchet Inception Distance) scores can vary significantly depending on the processing pipeline used. To ensure transparency and reproducibility, our framework provides a script `compute_fid.py` that supports FID evaluation for both EDM and Latent-Diffusion.
 
 ### 📌 How FID Evaluation Works
 
@@ -150,11 +154,11 @@ CUDA_VISIBLE_DEVICES=0 python3 compute_fid.py \
 ## Citation 
 
 ```
-@article{tong2024learning,
-  title={Learning to Discretize Denoising Diffusion ODEs},
-  author={Tong, Vinh and Hoang, Trung-Dung and Liu, Anji and Broeck, Guy Van den and Niepert, Mathias},
-  journal={arXiv preprint arXiv:2405.15506},
-  year={2024}
+@inproceedings{tong2024learning,
+  title     = {Learning to Discretize Denoising Diffusion ODEs},
+  author    = {Tong, Vinh and Hoang, Trung-Dung and Liu, Anji and Van den Broeck, Guy and Niepert, Mathias},
+  booktitle = {Proceedings of the 13th International Conference on Learning Representations},
+  year      = {2025}
 }
 ```
 
