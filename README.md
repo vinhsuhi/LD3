@@ -101,6 +101,10 @@ CUDA_VISIBLE_DEVICES=0 python3 main.py \
                     --log_path logs/logs_cifar10
 ```
 
+**Trained timesteps are available [here](https://docs.google.com/spreadsheets/d/1nUrTDvvtpPHZuRuJcn3zzxGmVKrNX4fFHu8wYIIoGSM/edit?usp=sharing) and are still being updated.**
+
+
+
 #### 📌 Key Arguments:
 
 - `data_dir`: The full path to the training data directory (unlike the root directory used during data generation).
