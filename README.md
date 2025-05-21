@@ -163,6 +163,15 @@ CUDA_VISIBLE_DEVICES=0 python3 compute_fid.py \
 }
 ```
 
+```
+@article{tong2024learning,
+  title={Learning to Discretize Denoising Diffusion ODEs},
+  author={Tong, Vinh and Hoang, Trung-Dung and Liu, Anji and Broeck, Guy Van den and Niepert, Mathias},
+  journal={arXiv preprint arXiv:2405.15506},
+  year={2024}
+}
+```
+
 ## License
 MIT 
 
